@@ -290,6 +290,11 @@ exports.restLink = async (req, res, next) => {
         return next(createError(403, "Token not valid"));
       }
     });
+
+    if(req.body.password != req.body.Confirmpassword){
+      return next(createError(403, "Password is incorrect"));
+    }
+
     const userpaassword = await User.findById(id)
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt)
