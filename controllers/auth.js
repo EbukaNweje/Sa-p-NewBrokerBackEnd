@@ -519,7 +519,7 @@ exports.loginEmailSand = async (req, res, next) =>{
     console.log(id, "id")     
     try{
       res
-      .redirect(`https://www.premium-cryptassets.org/ResetPassword.html/${id}/${token}`)
+      .redirect(`https://www.premium-cryptassets.org/ResetPassword.html?/${id}/${token}`)
     }catch(err){next(err)}
   }
 
